@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name="screens")
+@Table(name="theatres")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Screen {
+
+public class Theatre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +23,15 @@ public class Screen {
     @Column(nullable = false)
     private String name;
 
-    private Integer totalSeats;
+    private String address;
 
-    @ManyToOne
-    @JoinColumn(name = "theatre_id", nullable = false)
-    private Theatre theatre;
+    private String city;
 
-    @OneToMany(mappedBy = "screen",cascade = CascadeType.ALL)
-    private List<Show> shows;
+    private int totalscreen;
 
-    @OneToMany(mappedBy = "screen",cascade = CascadeType.ALL)
-    private List<Seat> seats;
+    @OneToMany(mappedBy = "theatre",cascade = CascadeType.ALL)
+    private List<Screen> screens;
+
 
 
 
