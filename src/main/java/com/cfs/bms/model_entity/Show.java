@@ -23,7 +23,7 @@ public class Show {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate startTime;
+    private LocalDateTime startTime;
 
     @Column(nullable = false)
     private LocalDateTime endTime;
@@ -37,7 +37,7 @@ public class Show {
     private Screen screen;
 
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
-    private List<Showseat> showseats;
+    private List<ShowSeat> showseats;
 
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
     private List<Booking> bookings;

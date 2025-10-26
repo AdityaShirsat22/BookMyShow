@@ -28,8 +28,12 @@ public class Booking {
 
 
     @ManyToOne
-    @Column(name="show_id",nullable = false)
+    @JoinColumn(name="user_id",nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name="show_id",nullable = false)
+    private Show show;
 
     @Column(nullable = false)
     private String status; // confirm, cancel,pending
@@ -38,7 +42,7 @@ public class Booking {
     private Double totalAmount;
 
     @OneToMany(mappedBy = "booking",cascade = CascadeType.ALL)
-    private List<Showseat> showseats;
+    private List<ShowSeat> showSeats;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name= "payment_id")

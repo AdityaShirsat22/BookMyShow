@@ -1,25 +1,17 @@
-package com.cfs.bms.model_entity;
-import jakarta.persistence.*;
+package com.cfs.bms.dto;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-@Entity
-@Table(name="movies")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+public class MovieDto {
 
-public class Movie {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String title;
 
     private String description;
@@ -34,9 +26,5 @@ public class Movie {
 
     private String posterUrl;
 
-    @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL)
-    private List<Show> shows;
-
 
 }
-
