@@ -77,7 +77,7 @@ public class BookingService {
             seat.setBooking(saveBooking);
         });
         showSeatRepository.saveAll(selectedSeats);
-        return
+        return mapToBookingDto(saveBooking,selectedSeats);
 
 
     }
